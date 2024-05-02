@@ -1,4 +1,4 @@
-package com.yash.crypwatcher.ui.theme
+package com.yash.crypwatcher.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

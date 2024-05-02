@@ -1,4 +1,4 @@
-package com.yash.crypwatcher.ui.theme
+package com.yash.crypwatcher.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
