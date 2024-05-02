@@ -1,6 +1,7 @@
 package com.yash.crypwatcher.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
+import com.yash.crypwatcher.domain.model.Coin
 
 data class CoinDto(
     val id: String,
@@ -13,3 +14,13 @@ data class CoinDto(
     val symbol: String,
     val type: String
 )
+
+fun CoinDto.toCoin(): Coin{
+    return Coin(
+        id = id,
+        isActive = isActive,
+        name = name,
+        rank = rank,
+        symbol = symbol
+    )
+}
