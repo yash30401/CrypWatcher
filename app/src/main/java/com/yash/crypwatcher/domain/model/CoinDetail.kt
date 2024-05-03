@@ -3,6 +3,7 @@ package com.yash.crypwatcher.domain.model
 import com.yash.crypwatcher.data.remote.dto.TeamMember
 
 data class CoinDetail(
+    val logo:String,
     val coinId:String,
     val name:String,
     val description:String,

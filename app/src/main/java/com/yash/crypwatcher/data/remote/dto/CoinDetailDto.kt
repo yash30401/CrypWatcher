@@ -57,6 +57,7 @@ data class CoinDetailDto(
 
 fun CoinDetailDto.toCoinDetail():CoinDetail{
     return CoinDetail(
+        logo = logo,
         coinId = id,
         name = name,
         description = description,

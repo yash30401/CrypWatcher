@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
@@ -23,11 +24,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import coil.ImageLoader
+import coil.compose.AsyncImage
 import com.yash.crypwatcher.data.remote.dto.TeamMember
 import com.yash.crypwatcher.presentation.Screen
 import com.yash.crypwatcher.presentation.coin_detail.components.CoinTag
@@ -48,9 +52,17 @@ fun CoinDetailScreen(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
+                        AsyncImage(
+                            model = coin.logo,
+                            contentDescription = "${coin.name} logo",
+                            imageLoader = ImageLoader(
+                                LocalContext.current
+                            )
+                        )
+                        Spacer(modifier = Modifier.width(3.dp))
                         Text(
                             text = "${coin.rank}. ${coin.name} (${coin.symbol})",
-                            style = MaterialTheme.typography.bodyLarge,
+                            style = MaterialTheme.typography.headlineLarge,
                             modifier = Modifier.weight(8f)
                         )
                         Text(
@@ -66,7 +78,7 @@ fun CoinDetailScreen(
                     Spacer(modifier = Modifier.height(15.dp))
                     Text(
                         text = coin.description,
-                        style = MaterialTheme.typography.bodySmall
+                        style = MaterialTheme.typography.bodyMedium
                     )
                     Spacer(modifier = Modifier.height(15.dp))
                     Text(
